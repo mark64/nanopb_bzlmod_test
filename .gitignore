@@ -1,0 +1,4 @@
+bazel-bin
+bazel-nanopb_bzlmod_test
+bazel-out
+bazel-testlogs

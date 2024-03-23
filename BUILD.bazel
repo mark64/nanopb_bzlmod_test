@@ -1,0 +1,15 @@
+load(
+    "@nanopb//extra/bazel:nanopb_cc_proto_library.bzl",
+    "cc_nanopb_proto_library",
+)
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+proto_library(
+    name = "packet",
+    srcs = ["packet.proto"],
+)
+
+cc_nanopb_proto_library(
+    name = "packet_nanopb_proto",
+    protos = [":packet"],
+)

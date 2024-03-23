@@ -1,0 +1,11 @@
+module(name = "nanopb_bzlmod_test")
+
+# Remove this or downgrade to see the original error.
+bazel_dep(name = "rules_python", version = "0.31.0")
+bazel_dep(name = "rules_proto", version = "5.3.0-21.7")
+bazel_dep(name = "nanopb")
+git_override(
+    module_name = "nanopb",
+    commit = "daa7d14f749b7db0b4107b5652ca4137672d10fc",
+    remote = "https://github.com/Sayter99/nanopb",
+)

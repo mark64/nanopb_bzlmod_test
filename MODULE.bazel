@@ -1,11 +1,26 @@
 module(name = "nanopb_bzlmod_test")
 
 # Remove this or downgrade to see the original error.
-bazel_dep(name = "rules_python", version = "0.31.0")
-bazel_dep(name = "rules_proto", version = "5.3.0-21.7")
+# ^^^
+# sayter: to be exact, in bzlmod we can use the latest version of rules_python; the problem would occur if using workspace.
+
+# bazel_dep(name = "rules_python", version = "0.31.0")
+# python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+# python.toolchain(
+#     configure_coverage_tool = True,
+#     python_version = "3.10",
+#     ignore_root_user_error = True,
+# )
+# ^^^
+# sayter: Good catch, we need to do below because I specify python 3.10 to be used in `nanopb/MODULE.bazel`.
+#         Then use the 3.10 python to do pip install for @nanopb_pypi.
+#         We can probably use default python in @nanopb, so there's no need to worry about it in users' ends.
+#         The downside might be that requirement CI should be updated from time to time if default python
+#         version changed. Otherwise, the below block should be adopted to make bzlmod work.
 bazel_dep(name = "nanopb")
 git_override(
     module_name = "nanopb",
-    commit = "daa7d14f749b7db0b4107b5652ca4137672d10fc",
+    # "daa7d14f749b7db0b4107b5652ca4137672d10fc" will require users to register 3.10 toolchain
+    commit = "ba3e0edc2f895666e35435366009f8b413ee8ffb",
     remote = "https://github.com/Sayter99/nanopb",
 )

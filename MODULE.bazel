@@ -21,6 +21,6 @@ bazel_dep(name = "nanopb")
 git_override(
     module_name = "nanopb",
     # "daa7d14f749b7db0b4107b5652ca4137672d10fc" will require users to register 3.10 toolchain
-    commit = "76544da9f6df603a7b8646109b2892f6f5bd04a3",
+    commit = "56b46f75aa482d819530584a1916ed8c9bc9375f",
     remote = "https://github.com/Sayter99/nanopb",
 )

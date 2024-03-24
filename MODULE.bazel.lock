@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 6,
-  "moduleFileHash": "90930d1dbbde51b7d4c820f6ae6fe9434d77fdbea5cebf77945babbc4424ccb1",
+  "moduleFileHash": "479100c486cee71a3c0cb7461c002bca716fb19d775d781599417d97e9ddca6d",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -58,7 +58,8 @@
               "tagName": "parse",
               "attributeValues": {
                 "hub_name": "nanopb_pypi",
-                "requirements_lock": "@nanopb//:extra/requirements_lock.txt"
+                "requirements_lock": "@nanopb//:extra/requirements_lock.txt",
+                "python_version": "3.11"
               },
               "devDependency": false,
               "location": {
@@ -98,7 +99,7 @@
               "devDependency": false,
               "location": {
                 "file": "@@nanopb~//:MODULE.bazel",
-                "line": 17,
+                "line": 18,
                 "column": 13
               }
             }
